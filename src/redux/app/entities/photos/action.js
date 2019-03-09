@@ -16,7 +16,7 @@ export const DESTROY_PHOTO_FULFILLED = 'DESTROY_PHOTO_FULFILLED'
 
 const upload = (file, isPortrait) => ({
   type: UPLOAD_PHOTO,
-  payload: Photos.upload(),
+  payload: Photos.upload(file, isPortrait),
   meta: { file, isPortrait }
 })
 
