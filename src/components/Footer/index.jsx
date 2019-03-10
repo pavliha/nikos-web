@@ -13,10 +13,15 @@ const styles = {
   },
 }
 
-const Footer = ({ classes }) =>
-  <div className={classes.root}>
-    <Typography color="inherit">Николай Костюк</Typography>
-  </div>
+const Footer = ({ classes }) => {
+  const dt = new Date()
+
+  return (
+    <div className={classes.root}>
+      <Typography color="inherit">Николай Костюк &copy; {dt.getFullYear()}</Typography>
+    </div>
+  )
+}
 
 Footer.propTypes = {
   classes: object.isRequired,
