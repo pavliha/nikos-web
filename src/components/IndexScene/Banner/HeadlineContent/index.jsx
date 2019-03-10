@@ -2,6 +2,7 @@ import React from 'react'
 import { object, string } from 'prop-types'
 import classNames from 'classnames'
 import { Button, Typography, withStyles } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import IAm from './IAm'
 
 const styles = {
@@ -31,7 +32,9 @@ const HeadLineContent = ({ classes, className, }) =>
       <Typography color="inherit" gutterBottom variant="h3">и видеооператор</Typography>
     </div>
     <div className={classes.actions}>
-      <Button size="large" color="inherit" variant="outlined">СМОТРЕТЬ ФОТОГРАФИИ</Button>
+      <Link to="/photos">
+        <Button com size="large" color="inherit" variant="outlined">СМОТРЕТЬ ФОТОГРАФИИ</Button>
+      </Link>
     </div>
   </div>
 
