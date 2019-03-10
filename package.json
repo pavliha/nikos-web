@@ -11,6 +11,8 @@
     "build": "npm run build:server && npm run build:client",
     "inspect": "node --inspect-brk index.js",
     "serve": "node index.js --production",
+    "serve:pm2": "NODE_ENV=production pm2 start node index.js --name web",
+    "prod:pm2": "npm run build && npm run serve:pm2",
     "prod": "npm run build && npm run serve"
   },
   "author": "",
