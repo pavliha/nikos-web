@@ -42,7 +42,7 @@ class FotoramaSlider extends Component {
         <div
           className="fotorama"
           data-nav="thumbs"
-          data-height="700"
+          data-width="100%"
           data-thumbwidth="150"
           data-thumbheight="100"
           data-auto="false"

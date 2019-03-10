@@ -3,15 +3,26 @@ import { object } from 'prop-types'
 import { Button, Typography, withStyles } from '@material-ui/core'
 import Video from './Video'
 
-const styles = {
+const styles = theme => ({
   root: {
     backgroundColor: 'rgba(0,0,0,0.03)',
     display: 'flex',
-    padding: 40,
-    height: 570,
+    flexWrap: 'wrap',
+    paddingTop: 40,
+    paddingBottom: 40,
+    width: '100%',
+    minHeight: 570,
+    flexDirection: 'column-reverse',
+    [theme.breakpoints.up('md')]: {
+      flexWrap: 'nowrap',
+      flexDirection: 'row',
+    },
+
   },
   slider: {
-    width: 1000,
+    maxWidth: 1000,
+    width: '100%',
+    minHeight: 300,
   },
   description: {
     display: 'flex',
@@ -27,9 +38,14 @@ const styles = {
     paddingBottom: 25,
   },
   articleSection: {
+    padding: 15,
     maxWidth: 500,
+    marginTop: 25,
+    [theme.breakpoints.up('md')]: {
+      marginTop: 0,
+    },
   }
-}
+})
 
 const VideosSection = ({ classes }) =>
   <section className={classes.root}>

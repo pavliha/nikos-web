@@ -5,10 +5,9 @@ import Tile from './Tile'
 
 const styles = {
   root: {
-    margin: '30px',
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, 300px);',
-    gridAutoRows: '200px',
+    gridTemplateColumns: 'repeat(auto-fit, 372px);',
+    gridAutoRows: '247px',
     justifyContent: 'center',
     gridGap: '3px'
   },
