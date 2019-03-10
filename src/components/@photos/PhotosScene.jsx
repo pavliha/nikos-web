@@ -9,7 +9,7 @@ import PhotoModal from './PhotoModal'
 const styles = {
   root: {
     maxWidth: 1270,
-    margin: '100px auto',
+    margin: '62px auto',
   },
 }
 
