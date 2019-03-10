@@ -16,10 +16,6 @@ a {
     height: 100%;
 }
 
-#root > div {
-    height: 100%;
-}
-
 a {
     cursor: pointer;
     text-decoration: none;

@@ -1,31 +1,60 @@
-import React, { Component } from 'react'
-import { object, array } from 'prop-types'
-import { withStyles } from '@material-ui/core'
-import Tile from './Tile'
+import React from 'react'
+import { array, object } from 'prop-types'
+import { Button, Typography, withStyles } from '@material-ui/core'
+import FotoramaSlider from './FotoramaSlider'
 
 const styles = {
   root: {
-    minHeight: 500,
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, 300px);',
-    gridAutoRows: '200px',
-    justifyContent: 'center',
-    gridGap: '3px'
+    display: 'flex',
+    padding: 40,
+    height: 804,
   },
-}
-
-class PhotosSection extends Component {
-
-  render() {
-    const { classes, photos } = this.props
-
-    return (
-      <div className={classes.root}>
-        {photos.map(photo => <Tile key={photo.id} photo={photo} />)}
-      </div>
-    )
+  slider: {
+    height: 804,
+    width: 1000,
+  },
+  description: {
+    height: 804,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexGrow: 1,
+  },
+  hr: {
+    margin: '20px 0',
+    width: 50,
+  },
+  article: {
+    paddingBottom: 25,
+  },
+  articleSection: {
+    maxWidth: 500,
   }
 }
+
+const PhotosSection = ({ classes, photos }) =>
+  <section className={classes.root}>
+    <div className={classes.slider}>
+      <FotoramaSlider photos={photos} />
+    </div>
+    <div className={classes.description}>
+      <div className={classes.articleSection}>
+        <Typography variant="h3">Фотосъемка</Typography>
+        <hr className={classes.hr} />
+        <Typography variant="h6" component="article" className={classes.article}>
+          Видеосъемкой занимаюсь давно и с увлечением.
+          Здесь реализуются творческие замыслы, здесь
+          безграничное поле для экспериментов, здесь
+          можно проявить полет фантазии, постоянно
+          находить новые решения и совершенствовать
+          мастерство. При этом очень важно учитывать и
+          пожелания клиентов, понимать их видение того
+          или иного эпизода.
+        </Typography>
+        <Button size="large" variant="outlined">СМОТРЕТЬ ФОТОГРАФИИ</Button>
+      </div>
+    </div>
+  </section>
 
 PhotosSection.propTypes = {
   classes: object.isRequired,

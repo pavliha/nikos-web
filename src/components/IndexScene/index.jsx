@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core'
 import { object, array } from 'prop-types'
 import Banner from './Banner'
-import SliderSection from './SliderSection'
+import PhotosSection from './PhotosSection'
+import VideosSection from './VideosSection'
 import connector from './connector'
 import isEmpty from 'lodash/isEmpty'
+import ContactsSection from './ContactsSection'
 
 const styles = {
   root: {
@@ -29,7 +31,9 @@ class Index extends Component {
     return (
       <main className={classes.root}>
         <Banner />
-        {!isEmpty(photos) && <SliderSection photos={photos} />}
+        {!isEmpty(photos) && <PhotosSection photos={photos} />}
+        <VideosSection />
+        <ContactsSection />
       </main>
     )
   }

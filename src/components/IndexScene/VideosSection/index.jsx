@@ -1,20 +1,19 @@
 import React from 'react'
-import { array, object } from 'prop-types'
+import { object } from 'prop-types'
 import { Button, Typography, withStyles } from '@material-ui/core'
-import FotoramaSlider from './FotoramaSlider'
+import Video from './Video'
 
 const styles = {
   root: {
+    backgroundColor: 'rgba(0,0,0,0.03)',
     display: 'flex',
     padding: 40,
-    height: 804,
+    height: 570,
   },
   slider: {
-    height: 804,
     width: 1000,
   },
   description: {
-    height: 804,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -32,14 +31,11 @@ const styles = {
   }
 }
 
-const SliderSection = ({ classes, photos }) =>
+const VideosSection = ({ classes }) =>
   <section className={classes.root}>
-    <div className={classes.slider}>
-      <FotoramaSlider photos={photos} />
-    </div>
     <div className={classes.description}>
       <div className={classes.articleSection}>
-        <Typography variant="h3">Фотосъемка</Typography>
+        <Typography variant="h3">Видеосъемка</Typography>
         <hr className={classes.hr} />
         <Typography variant="h6" component="article" className={classes.article}>
           Видеосъемкой занимаюсь давно и с увлечением.
@@ -51,14 +47,17 @@ const SliderSection = ({ classes, photos }) =>
           пожелания клиентов, понимать их видение того
           или иного эпизода.
         </Typography>
-        <Button size="large" variant="outlined">СМОТРЕТЬ ФОТОГРАФИИ</Button>
+        <Button size="large" variant="outlined">СМОТРЕТЬ ВИДЕОКЛИПЫ</Button>
       </div>
     </div>
+    <div className={classes.slider}>
+      <Video id="PLG-S2eZcTE" />
+    </div>
+
   </section>
 
-SliderSection.propTypes = {
+VideosSection.propTypes = {
   classes: object.isRequired,
-  photos: array.isRequired,
 }
 
-export default withStyles(styles)(SliderSection)
+export default withStyles(styles)(VideosSection)
