@@ -15,6 +15,7 @@ import Footer from './Footer'
 
 const AdminLayout = loadable(() => import('./@admin/AdminLayout'))
 const PricesScene = loadable(() => import('./@prices/PricesScene'))
+const PhotosScene = loadable(() => import('./@photos/PhotosScene'))
 
 /**
  * Some dummy layout to show code splitting is working
@@ -48,6 +49,7 @@ class Layout extends Component {
             <Switch>
               <Route exact path="/" component={IndexScene} />
               <Route exat path="/prices" component={() => <PricesScene />} />
+              <Route exat path="/photos" component={() => <PhotosScene />} />
             </Switch>
             <Footer />
           </div>
