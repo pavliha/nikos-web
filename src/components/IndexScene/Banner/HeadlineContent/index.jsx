@@ -51,7 +51,7 @@ const HeadLineContent = ({ classes, className, }) =>
     </div>
     <div className={classes.actions}>
       <Link to="/photos">
-        <Button com size="large" color="inherit" variant="outlined">СМОТРЕТЬ ФОТОГРАФИИ</Button>
+        <Button size="large" color="inherit" variant="outlined">СМОТРЕТЬ ФОТОГРАФИИ</Button>
       </Link>
     </div>
   </div>
