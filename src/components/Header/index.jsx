@@ -3,6 +3,7 @@ import { object, string } from 'prop-types'
 import { IconButton, withStyles } from '@material-ui/core'
 import NavItem from './NavItem'
 import MenuIcon from 'mdi-react/MenuIcon'
+import CloseIcon from 'mdi-react/CloseIcon'
 
 const styles = (theme) => ({
   root: {
@@ -14,20 +15,23 @@ const styles = (theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
     transition: 'all .2s ease-out 0.1s',
+    minHeight: 60,
   },
   list: {
     flexGrow: 1,
     display: 'none',
+    flexDirection: 'column',
     padding: 0,
     margin: 0,
     alignItems: 'center',
     listStyle: 'none',
-    height: 60,
     [theme.breakpoints.up('md')]: {
       display: 'flex',
+      flexDirection: 'row',
     }
   },
   iconButton: {
+    position: 'absolute',
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
@@ -43,7 +47,8 @@ class Header extends Component {
     const { pathname } = props
 
     this.state = {
-      color: pathname === '/' ? 'transparent' : 'rgba(0,0,0,0.7)'
+      color: pathname === '/' ? 'transparent' : 'rgba(0,0,0,0.7)',
+      isExpanded: false,
     }
 
   }
@@ -53,6 +58,11 @@ class Header extends Component {
     if (this.props.pathname === props.pathname) return
 
     this.setState({ color: props.pathname === '/' ? 'transparent' : 'rgba(0,0,0,0.7)' })
+  }
+
+  componentDidMount() {
+    this.setState({ isMounted: true })
+    window.addEventListener('scroll', this.listenScrollEvent)
   }
 
   listenScrollEvent = e => {
@@ -66,25 +76,48 @@ class Header extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({ isMounted: true })
-    window.addEventListener('scroll', this.listenScrollEvent)
-  }
+  closeMenu = () =>
+    this.setState({ isExpanded: false, })
+
+  expandMenu = () =>
+    this.setState({ isExpanded: true })
 
   render() {
     const { classes } = this.props
-    const { color } = this.state
+    const { color, isExpanded } = this.state
 
     return (
-      <nav className={classes.root} style={{ background: color }}>
-        <ul className={classes.list}>
-          <NavItem to="/">ГЛАВНАЯ</NavItem>
-          <NavItem to="/photos">ФОТОГАЛЕРЕЯ</NavItem>
-          <NavItem to="/video">ОБРАЗЦЫ ВИДЕО</NavItem>
-          <NavItem to="/prices">ЦЕНЫ И УСЛУГИ</NavItem>
-          <NavItem to="/contacts">КОНТАКТЫ</NavItem>
+      <nav className={classes.root} style={{ backgroundColor: color }}>
+        <ul
+          className={classes.list}
+          style={{
+            display: isExpanded ? 'flex' : undefined,
+            backgroundColor: isExpanded ? 'rgba(0,0,0,0.7)' : color,
+          }}>
+          <NavItem onClick={this.closeMenu} to="/">ГЛАВНАЯ</NavItem>
+          <NavItem onClick={this.closeMenu} to="/photos">ФОТОГАЛЕРЕЯ</NavItem>
+          <NavItem onClick={this.closeMenu} to="/video">ОБРАЗЦЫ ВИДЕО</NavItem>
+          <NavItem onClick={this.closeMenu} to="/prices">ЦЕНЫ И УСЛУГИ</NavItem>
+          <NavItem onClick={this.closeMenu} to="/contacts">КОНТАКТЫ</NavItem>
         </ul>
-        <IconButton className={classes.iconButton}><MenuIcon /></IconButton>
+
+        {!isExpanded && (
+          <IconButton
+            onClick={this.expandMenu}
+            className={classes.iconButton}
+          >
+            <MenuIcon />
+          </IconButton>
+        )}
+
+        {isExpanded && (
+          <IconButton
+            onClick={this.closeMenu}
+            className={classes.iconButton}
+          >
+            <CloseIcon />
+          </IconButton>
+        )}
       </nav>
     )
   }

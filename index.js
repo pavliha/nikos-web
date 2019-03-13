@@ -47,7 +47,7 @@ function runProduction() {
    * Steps to run production build
    */
 
-  const client = path.resolve(__dirname, '../build')
+  const client = path.resolve(__dirname, './build/public')
   const serverPath = path.resolve(__dirname, './build/server.js')
   const serverRenderer = require(serverPath).default
   app.use(express.static(client))

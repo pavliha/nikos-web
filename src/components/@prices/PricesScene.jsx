@@ -5,8 +5,9 @@ import Services from './Services'
 
 const styles = {
   root: {
-    margin: '100px auto',
-    maxWidth: 1100
+    margin: '20px auto',
+    maxWidth: 1100,
+    padding: 15,
   },
   fab: {
     position: 'absolute',

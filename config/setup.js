@@ -1,5 +1,7 @@
 module.exports = {
 
+  port: process.env.PORT || 2000,
+
   /**
    webpack reload options
    */

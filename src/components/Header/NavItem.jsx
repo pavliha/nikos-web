@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, node, string } from 'prop-types'
+import { object, func, node, string } from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import { Link, withRouter } from 'react-router-dom'
 import classNames from 'classnames'
@@ -10,9 +10,9 @@ const styles = {
     textAlign: 'center',
     width: '100%',
     display: 'flex',
+    height: 60,
     flexDirection: 'column',
     justifyContent: 'center',
-    height: '100%',
   },
   link: {
     display: 'flex',
@@ -34,9 +34,10 @@ const styles = {
   }
 }
 
-const NavItem = ({ classes, children, history, to }) =>
+const NavItem = ({ classes, children, history, to, onClick }) =>
   <li className={classes.root}>
     <Link
+      onClick={onClick}
       to={to}
       className={classNames({
         [classes.link]: true,
@@ -52,6 +53,7 @@ NavItem.propTypes = {
   to: string.isRequired,
   children: node.isRequired,
   history: object.isRequired,
+  onClick: func.isRequired,
 }
 
 export default withStyles(styles)(withRouter(NavItem))

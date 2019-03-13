@@ -6,13 +6,13 @@ import photo from './background.jpg'
 
 const styles = {
   root: {
-    height: '100%',
+    height: 950,
     minHeight: 950,
   },
   picture: {
     position: 'relative',
     boxShadow: 'inset 0px 84px 200px -16px rgba(0,0,0,0.7)',
-    height: '100%',
+    height: 950,
     backgroundSize: 'cover',
     backgroundImage: `url(${photo})`,
     backgroundRepeat: 'no-repeat',
@@ -26,6 +26,7 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
+    height: 950,
     minHeight: 950,
   }
 }
