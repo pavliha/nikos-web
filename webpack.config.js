@@ -1,6 +1,7 @@
 const path = require('path')
 const Css = require('mini-css-extract-plugin')
 const webpack = require('webpack')
+const Dotenv = require('dotenv-webpack')
 
 /**
  * Common webpack config for both server and client configs.
@@ -97,10 +98,7 @@ module.exports = {
 
   plugins: [
 
-    new webpack.DefinePlugin({
-      'process.env.BACKEND_URL': '"http://0.0.0.0:3333"',
-    }),
-
+    new Dotenv(),
     /**
      * Don't know what is's doing. Please contribute and write explanation comment :)
      */
