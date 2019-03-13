@@ -19,7 +19,7 @@ const Budget = ({ classes }) =>
       Пакет<br /> «<span className={classes.color}>Эконом</span>»
     </Title>
     <Price>
-      3000 грн
+      3000 гр
     </Price>
     <ServiceList>
       <ListItem>ЗАГС и маленькая прогулка</ListItem>

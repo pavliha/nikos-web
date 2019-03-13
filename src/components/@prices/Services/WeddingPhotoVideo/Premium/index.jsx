@@ -19,15 +19,15 @@ const Premium = ({ classes }) =>
       Пакет <br /> «<span className={classes.color}>Максимальный</span>»
     </Title>
     <Price>
-      10000 грн
+      10000 гр
     </Price>
     <ServiceList>
-      <ListItem>Полный день</ListItem>
-      <ListItem>500 обработаных фотографий</ListItem>
-      <ListItem>Индивидуально оформленный комплект DVD-дисков</ListItem>
-      <ListItem>Запись Full HD видео на любой носитель</ListItem>
-      <ListItem>Короткие видеоклипы "невеста", "прогулка"</ListItem>
-      <ListItem>Свадебный клип "История любви"</ListItem>
+      <ListItem>Два дня</ListItem>
+      <ListItem>700 обработаных фотографий</ListItem>
+      <ListItem>Индивидуально оформленный комплект дисков (видео в формате Full HD + фото</ListItem>
+      <ListItem>Запись Full HD видео и фото на любой другой носитель клиента</ListItem>
+      <ListItem>Короткие видеоклипы "Невеста", "Прогулка"</ListItem>
+      <ListItem>Свадебный клип</ListItem>
     </ServiceList>
   </Service>
 

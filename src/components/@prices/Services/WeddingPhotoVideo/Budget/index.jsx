@@ -19,13 +19,14 @@ const Budget = ({ classes }) =>
       Пакет<br /> «<span className={classes.color}>Эконом</span>»
     </Title>
     <Price>
-      6000 грн
+      6000 гр
     </Price>
     <ServiceList>
-      <ListItem>ЗАГС и маленькая прогулка</ListItem>
-      <ListItem>100 обработаных фотографий</ListItem>
-      <ListItem>Индивидуально оформленный комплект DVD-дисков</ListItem>
-      <ListItem>Запись Full HD видео на любой носитель</ListItem>
+      <ListItem>Съемочный день – до банкета</ListItem>
+      <ListItem>300 обработаных фотографий</ListItem>
+      <ListItem>Индивидуально оформленный комплект дисков (видео в формате Full HD + фото)</ListItem>
+      <ListItem>Запись Full HD видео и фото на любой другой носитель клиента</ListItem>
+      <ListItem>Короткие видеоклипы "Невеста", "Прогулка"</ListItem>
     </ServiceList>
   </Service>
 

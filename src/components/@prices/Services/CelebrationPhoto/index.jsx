@@ -20,7 +20,7 @@ const CelebrationPhoto = ({ classes }) =>
       <Service>
         <Title>Фотосьёмка</Title>
         <Price>
-          800 грн / час
+          800 гр / час
         </Price>
         <ServiceList>
           <ListItem>Работа фотографа</ListItem>
@@ -30,34 +30,34 @@ const CelebrationPhoto = ({ classes }) =>
           <ListItem>Индивидуальное оформление CD/DVD-диска с фотографиями.</ListItem>
         </ServiceList>
         <Typography variant="caption">
-          все фотографии дублируются в сжатом варианте для записи на телефон или для удобного размещения в интернет;
+          все фотографии дублируются в сжатом варианте для записи на телефон или для удобного размещения в Интернет;
         </Typography>
       </Service>
       <Service>
         <Title>Видеосьёмка</Title>
         <Price>
-          1350 грн / час
+          1400  гр / час
         </Price>
         <ServiceList>
           <ListItem>Работа видеооператора</ListItem>
           <ListItem>Дополнительное освещение (если необходимо)</ListItem>
           <ListItem>Создание фильма, с использованием видеомонтажа</ListItem>
-          <ListItem>Индивидуальное оформление DVD-диска с фильмом</ListItem>
-          <ListItem>Запись фильма в формате Full HD на носитель клиента</ListItem>
+          <ListItem>Индивидуальное оформление дисков с фильмом качества Full HD</ListItem>
+          <ListItem>Запись фильма в формате Full HD на любой носитель клиента</ListItem>
         </ServiceList>
       </Service>
       <Service>
         <Title>Все вместе</Title>
         <Price>
-          2000 грн / час
+          2100 гр / час
         </Price>
         <ServiceList>
           <ListItem>Работа фотографа</ListItem>
           <ListItem>Работа видеооператора</ListItem>
           <ListItem>Обработка не менее 50 фотографий</ListItem>
           <ListItem>Создание фильма, с использованием видеомонтажа</ListItem>
-          <ListItem>Индивидуальное оформление DVD-диска с фильмом</ListItem>
-          <ListItem>Запись фильма в формате Full HD на носитель клиента</ListItem>
+          <ListItem>Индивидуальное оформление дисков с фильмом качества Full HD + фото</ListItem>
+          <ListItem>Запись фильма в формате Full HD и фото на любой носитель клиента</ListItem>
           <ListItem>Дополнительное освещение (если необходимо)</ListItem>
         </ServiceList>
       </Service>

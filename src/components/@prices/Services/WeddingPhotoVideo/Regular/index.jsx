@@ -19,14 +19,14 @@ const Regular = ({ classes }) =>
       Пакет<br /> «<span className={classes.color}>Стандарт</span>»
     </Title>
     <Price>
-      8000 грн
+      8000 гр
     </Price>
     <ServiceList>
       <ListItem>Полный день</ListItem>
-      <ListItem>300 обработаных фотографий</ListItem>
-      <ListItem>Индивидуально оформленный комплект DVD-дисков</ListItem>
-      <ListItem>Запись Full HD видео на любой носитель</ListItem>
-      <ListItem>Короткие видеоклипы "невеста", "прогулка"</ListItem>
+      <ListItem>500 обработаных фотографий</ListItem>
+      <ListItem>Индивидуально оформленный комплект дисков (видео в формате Full HD + фото)</ListItem>
+      <ListItem>Запись Full HD видео и фото на любой другой носитель клиента</ListItem>
+      <ListItem>Короткие видеоклипы "Невеста", "Прогулка"</ListItem>
     </ServiceList>
   </Service>
 

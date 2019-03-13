@@ -19,7 +19,7 @@ const Regular = ({ classes }) =>
       Пакет<br /> «<span className={classes.color}>Стандарт</span>»
     </Title>
     <Price>
-      4000 грн
+      4000 гр
     </Price>
     <ServiceList>
       <ListItem>До банкета</ListItem>

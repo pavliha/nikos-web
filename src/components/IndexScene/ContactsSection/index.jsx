@@ -17,7 +17,7 @@ const ContactsSection = ({ classes }) =>
     <div>
       <Typography gutterBottom variant="h3">КОНТАКТЫ</Typography>
 
-      <Typography variant="h6">тел: +380970471604</Typography>
+      <Typography variant="h6">тел: +380970471609</Typography>
       <Typography variant="h6">email: nikos0669@gmail.com</Typography>
       <Typography variant="h6">instagram: Николай Костюк</Typography>
 
