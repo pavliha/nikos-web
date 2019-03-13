@@ -4,7 +4,7 @@ import { Typography, withStyles } from '@material-ui/core'
 
 const styles = {
   root: {
-    height: '93vh',
+    height: '94vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
