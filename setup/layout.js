@@ -9,10 +9,12 @@ export default ({ content, extractor, state, sheetsRegistry }) => {
     <!doctype html>
     <html lang="ru">
     <head>
-        <title>react ssr boilerplate</title>
+        <title>Николай Костюк - Свадебное фото и видео, фото детей, виньетки, фото на документы, фото в студии</title>
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
         ${extractor.getStyleTags()}
+        <meta name="description" content="Свадебный фотограф и видеооператор в Запорожье">
+        <meta name="keywords" content="Фотограф, Запорожье, Видеосьёмка, Фотосьёмка,Свадьба,свадебные фото, Качественный фотограф, Низкие цены">
                 
         <!-- 1. Link to jQuery (1.8 or later), -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
@@ -29,7 +31,15 @@ export default ({ content, extractor, state, sheetsRegistry }) => {
             window.__STATE__ = ${JSON.stringify(state)}
         </script>
         ${extractor.getScriptTags()}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136242809-1"></script>
         <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-136242809-1');
+        </script>
+
     </body>
     </html>
   `
