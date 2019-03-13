@@ -98,7 +98,7 @@ module.exports = {
   plugins: [
 
     new webpack.DefinePlugin({
-      'process.env.BACKEND_URL': '"http://localhost:3333"',
+      'process.env.BACKEND_URL': '"http://0.0.0.0:3333"',
     }),
 
     /**
