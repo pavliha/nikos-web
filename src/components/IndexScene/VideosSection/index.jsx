@@ -67,9 +67,8 @@ const VideosSection = ({ classes }) =>
       </div>
     </div>
     <div className={classes.slider}>
-      <Video id="PLG-S2eZcTE" />
+      <Video id="-XTBhJh4rWI" />
     </div>
-
   </section>
 
 VideosSection.propTypes = {
