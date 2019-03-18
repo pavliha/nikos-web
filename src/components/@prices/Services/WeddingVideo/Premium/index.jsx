@@ -22,7 +22,7 @@ const Premium = ({ classes }) =>
       8000 гр
     </Price>
     <ServiceList>
-      <ListItem>Полный день</ListItem>
+      <ListItem>2 дня</ListItem>
       <ListItem>Индивидуально оформленный комплект дисков (видео в формате Full HD)</ListItem>
       <ListItem>Запись Full HD видео на любой другой носитель клиента</ListItem>
       <ListItem>Короткие видеоклипы "Невеста", "Прогулка"</ListItem>
