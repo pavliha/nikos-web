@@ -2,6 +2,7 @@ import React from 'react'
 import { object } from 'prop-types'
 import { Button, Typography, withStyles } from '@material-ui/core'
 import Video from './Video'
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -63,7 +64,7 @@ const VideosSection = ({ classes }) =>
           пожелания клиентов, понимать их видение того
           или иного эпизода.
         </Typography>
-        <Button size="large" variant="outlined">СМОТРЕТЬ ВИДЕОКЛИПЫ</Button>
+        <Link to="/video"><Button size="large" variant="outlined">СМОТРЕТЬ ВИДЕОКЛИПЫ</Button></Link>
       </div>
     </div>
     <div className={classes.slider}>
