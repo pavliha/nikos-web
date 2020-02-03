@@ -1,71 +1,58 @@
 const path = require('path')
-const Css = require('mini-css-extract-plugin')
 const webpack = require('webpack')
+const merge = require('webpack-merge')
 const Dotenv = require('dotenv-webpack')
+const Clean = require('clean-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const { isDevelop, isTesting } = require('./lib/Stage')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const LoadableWebpackPlugin = require('@loadable/webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-/**
- * Common webpack config for both server and client configs.
- * Every plugin added there runs twice
- */
-
-module.exports = {
+const universal = {
   devtool: 'source-map',
+  mode: isDevelop ? 'development' : 'production',
+
+  stats: {
+    chunks: false, // Makes the build much quieter
+    colors: true, // Shows colors in the console
+    chunkGroups: false,
+    chunkModules: false,
+    modules: false,
+  },
 
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json'],
     modules: ['node_modules'],
-
-    /**
-     * Add your aliases here
-     */
     alias: {
+      lib: path.resolve(__dirname, './lib'),
       src: path.resolve(__dirname, './src'),
       api: path.resolve(__dirname, './src/api'),
-      config: path.resolve(__dirname, './config'),
-      app: path.resolve(__dirname, './src/redux/app'),
-      utils: path.resolve(__dirname, './src/utils'),
       assets: path.resolve(__dirname, './src/assets'),
-      setup: path.resolve(__dirname, './setup'),
-      constants: path.resolve(__dirname, './src/constants'),
-      controls: path.resolve(__dirname, './src/components/controls'),
       components: path.resolve(__dirname, './src/components'),
-      services: path.resolve(__dirname, './src/services'),
-      shapes: path.resolve(__dirname, './src/shapes')
-    }
+      containers: path.resolve(__dirname, './src/containers'),
+      config: path.resolve(__dirname, './src/config'),
+      shapes: path.resolve(__dirname, './src/shapes'),
+      utils: path.resolve(__dirname, './src/utils'),
+    },
   },
-
   context: __dirname,
-
   performance: {
     maxEntrypointSize: 500000,
     hints: false,
   },
-
+  optimization: {
+    minimizer: [
+      new TerserPlugin({ cache: true, parallel: true, sourceMap: true }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+  },
   module: {
     rules: [
-      /**
-       * Resolve jsx for React components and js for all order javascript code
-       */
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-
-      /**
-       * Looks for all css imports
-       */
-      {
-        test: /\.css$/,
-        use: [
-          Css.loader,
-          'css-loader',
-        ],
-      },
-
-      /**
-       * With this loader you can import svg icons. And this will convert svg to jsx code
-       */
+      { test: /\.jsx?$/, exclude: /node_modules/, use: ['babel-loader'] },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         use: [
@@ -78,38 +65,111 @@ module.exports = {
           },
         ],
       },
-      /**
-       * With this loader you can import pictures and it will provide path to them
-       */
+    ],
+  },
+  plugins: [
+    new LodashModuleReplacementPlugin({
+      shorthands: true,
+    }),
+  ],
+}
+
+const server = merge(universal, {
+  name: 'server',
+  target: 'node',
+  entry: './src/server',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'server.js',
+    libraryTarget: 'commonjs2',
+  },
+  module: {
+    rules: [
+      { test: /\.css$/, loader: 'ignore-loader' },
+      { test: /\.(jpe?g|png|gif|ico)$/i, loader: 'ignore-loader' },
+      { test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/, loader: 'ignore-loader' },
+    ],
+  },
+  plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
+  ],
+})
+
+const client = merge(universal, {
+  name: 'client',
+  target: 'web',
+  entry: {
+    client: [
+      ...(isDevelop ? [
+        'react-hot-loader/patch',
+        'webpack-hot-middleware/client?reload=true'
+      ] : []),
+      './src/client.js',
+    ],
+  },
+  optimization: {
+    namedModules: true,
+    runtimeChunk: { name: 'runtime' },
+    namedChunks: true,
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          chunks: 'initial',
+          name: 'vendor',
+          enforce: true,
+        },
+      },
+    },
+  },
+  output: {
+    path: path.resolve(__dirname, './dist/public'),
+    publicPath: '/',
+    filename: `[name].[hash:3].js`,
+  },
+  module: {
+    rules: [
+      {
+        sideEffects: true,
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
       {
         test: /\.(jpe?g|png|gif|ico)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
+              name() {
+                return '[path][name].[ext]'
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
               name: '[name].[ext]',
-              outputPath: 'assets',
+              outputPath: 'fonts/',
             },
           },
         ],
       },
     ],
   },
-
   plugins: [
-
     new Dotenv(),
-    /**
-     * Don't know what is's doing. Please contribute and write explanation comment :)
-     */
-    new webpack.NoEmitOnErrorsPlugin(),
+    new Clean('./public', { root: path.resolve(__dirname, './dist') }),
+    new MiniCssExtractPlugin({ filename: '[name].[hash:3].css', chunkFilename: '[id].[hash:3].css' }),
+    ...(isDevelop ? [new webpack.HotModuleReplacementPlugin()] : []),
+    ...(isTesting ? [new BundleAnalyzerPlugin()] : []),
+    new CopyWebpackPlugin([{ from: './src/assets', to: './' }]),
+    new LoadableWebpackPlugin({ writeToDisk: true }),
+  ],
+})
 
-    /**
-     * Bundles all css to separate file
-     */
-    new Css({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
-  ]
-}
+module.exports = [server, client]
