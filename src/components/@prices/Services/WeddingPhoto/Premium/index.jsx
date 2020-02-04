@@ -1,8 +1,8 @@
+/* eslint-disable import/no-duplicates */
 import React from 'react'
 import { object } from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import Title from '../../common/Title'
-import Price from '../../common/Price'
 import Service from '../../common/Service'
 import ServiceList from '../../common/ServiceList'
 import ListItem from '../../common/ServiceList/ListItem'
@@ -18,9 +18,6 @@ const Premium = ({ classes }) =>
     <Title>
       Пакет <br /> «<span className={classes.color}>Максимальный</span>»
     </Title>
-    <Price>
-      5000 гр
-    </Price>
     <ServiceList>
       <ListItem>Полный день</ListItem>
       <ListItem>500 обработаных фотографий</ListItem>

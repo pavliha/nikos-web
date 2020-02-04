@@ -7,7 +7,6 @@ import ListItem from '../common/ServiceList/ListItem'
 import Service from '../common/Service'
 import Services from '../common/Services'
 import Title from '../common/Title'
-import Price from '../common/Price'
 
 const styles = {
   root: {},
@@ -19,9 +18,6 @@ const CelebrationPhoto = ({ classes }) =>
     <Services>
       <Service>
         <Title>Фотосьёмка</Title>
-        <Price>
-          800 гр / час
-        </Price>
         <ServiceList>
           <ListItem>Работа фотографа</ListItem>
           <ListItem>Дополнительное освещение (если необходимо)</ListItem>
@@ -35,9 +31,6 @@ const CelebrationPhoto = ({ classes }) =>
       </Service>
       <Service>
         <Title>Видеосьёмка</Title>
-        <Price>
-          1400  гр / час
-        </Price>
         <ServiceList>
           <ListItem>Работа видеооператора</ListItem>
           <ListItem>Дополнительное освещение (если необходимо)</ListItem>
@@ -48,9 +41,6 @@ const CelebrationPhoto = ({ classes }) =>
       </Service>
       <Service>
         <Title>Все вместе</Title>
-        <Price>
-          2100 гр / час
-        </Price>
         <ServiceList>
           <ListItem>Работа фотографа</ListItem>
           <ListItem>Работа видеооператора</ListItem>

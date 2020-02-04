@@ -53,7 +53,7 @@ class Header extends Component {
 
   }
 
-  componentWillUpdate(props, state) {
+  componentWillUpdate(props) {
 
     if (this.props.pathname === props.pathname) return
 
@@ -65,7 +65,7 @@ class Header extends Component {
     window.addEventListener('scroll', this.listenScrollEvent)
   }
 
-  listenScrollEvent = e => {
+  listenScrollEvent = () => {
     const { pathname } = this.props
     if (pathname !== '/') return
 
@@ -97,7 +97,7 @@ class Header extends Component {
           <NavItem onClick={this.closeMenu} to="/">ГЛАВНАЯ</NavItem>
           <NavItem onClick={this.closeMenu} to="/photos">ФОТОГАЛЕРЕЯ</NavItem>
           <NavItem onClick={this.closeMenu} to="/video">ОБРАЗЦЫ ВИДЕО</NavItem>
-          <NavItem onClick={this.closeMenu} to="/prices">ЦЕНЫ И УСЛУГИ</NavItem>
+          <NavItem onClick={this.closeMenu} to="/prices">УСЛУГИ</NavItem>
           <NavItem onClick={this.closeMenu} to="/contacts">КОНТАКТЫ</NavItem>
         </ul>
 

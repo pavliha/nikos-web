@@ -1,8 +1,8 @@
+/* eslint-disable import/no-duplicates */
 import React from 'react'
 import { object } from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import Title from '../../common/Title'
-import Price from '../../common/Price'
 import Service from '../../common/Service'
 import ServiceList from '../../common/ServiceList'
 import ListItem from '../../common/ServiceList/ListItem'
@@ -18,9 +18,6 @@ const Budget = ({ classes }) =>
     <Title>
       Пакет<br /> «<span className={classes.color}>Эконом</span>»
     </Title>
-    <Price>
-      6000 гр
-    </Price>
     <ServiceList>
       <ListItem>Съемочный день – до банкета</ListItem>
       <ListItem>300 обработаных фотографий</ListItem>
