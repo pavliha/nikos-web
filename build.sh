@@ -18,7 +18,7 @@ echo 'Start mysql service'
 sudo service mysql start
 
 echo 'Copy new nginx config'
-sudo cp ./config.nginx /etc/nginx/sites-available/web.partymaker.zp.ua
+sudo cp ./config.nginx /etc/nginx/sites-available/web.nikos.zp.ua
 
 echo 'Start nginx service'
 sudo service nginx start

@@ -15,8 +15,8 @@ jobs:
             - "ab:67:18:77:69:73:28:3b:19:c5:de:00:26:41:ec:7b"
 
       - deploy:
-          name: digital-ocean
-          command: ssh -t -o "StrictHostKeyChecking no" dev@nikos.zp.ua "cd ~/nikos-web; ./build.sh"
+          name: digitalocean
+          command: ssh -t -o "StrictHostKeyChecking no" nikos@nikos.zp.ua "cd ~/nikos-web; ./build.sh"
 
 workflows:
   version: 2
