@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Button, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
 import { array, func, object, shape } from 'prop-types'
-import { Banner, FotoramaSlider, Video } from 'src/components'
+import { Banner, Fotorama, Video } from 'src/components'
 import isEmpty from 'lodash/isEmpty'
 import { actions, connect, select } from 'src/redux'
 import { Link } from 'react-router-dom'
@@ -105,7 +105,7 @@ const IndexScene = ({ classes, redux: { photos, loadPhotos } }) => {
       <Banner />
       <section id="PhotosSection" className={classes.photosSection}>
         <div className={classes.slider}>
-          <FotoramaSlider photos={photos} />
+          <Fotorama photos={photos} />
         </div>
         <div className={classes.description}>
           <div className={classes.photoArticleSection}>

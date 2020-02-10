@@ -8,6 +8,7 @@ const template = (html, assets) => `
       <head>
         <link rel="preconnect" href="${process.env.BACKEND_URL}">
         <link rel="preconnect" crossorigin="anonymous" href="https://www.google-analytics.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
         <meta content="width=device-width, minimum-scale=1, shrink-to-fit=no" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -19,6 +20,7 @@ const template = (html, assets) => `
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="/nikos-favicon.png" type="image/x-icon">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
         ${assets.title}
         ${assets.meta}
         ${assets.links}

@@ -1,6 +1,6 @@
 export Header from './Header'
 export Video from './Video'
 export Banner from './Banner'
-export FotoramaSlider from './FotoramaSlider'
+export Fotorama from './Fotorama'
 export PhotosGrid from './PhotosGrid'
 export CheckListItem from './CheckListItem'

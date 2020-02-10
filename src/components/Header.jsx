@@ -54,7 +54,7 @@ class Header extends Component {
 
   }
 
-  componentWillUpdate(props) {
+  UNSAFE_componentWillUpdate(props) {
 
     if (this.props.pathname === props.pathname) return
 
