@@ -1,4 +1,3 @@
-export Footer from './Footer'
 export Header from './Header'
 export HeaderNavItem from './HeaderNavItem'
 export Loading from './Loading'
