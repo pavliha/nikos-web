@@ -12,12 +12,12 @@ const template = (html, assets) => `
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/partymaker-favicon.svg" color="#9306BC">
+        <link rel="mask-icon" href="/nikos-favicon.svg" color="#9306BC">
         <meta name="msapplication-TileColor" content="#9306BC">
         <meta name="theme-color" content="#9306BC">
         <base href="/">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="/partymaker-favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="/nikos-favicon.png" type="image/x-icon">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         ${assets.title}
         ${assets.meta}
@@ -37,11 +37,6 @@ const template = (html, assets) => `
         <script async src="https://www.google-analytics.com/analytics.js"></script>        
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}"></script>
-        <script>
-          if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'))
-          }
-        </script>
       </body>
       </html>
 `

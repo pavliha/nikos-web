@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { object, array, shape, func } from 'prop-types'
 import { withStyles } from '@material-ui/styles'
 import { PhotosGrid } from 'src/components'
@@ -20,7 +20,8 @@ const styles = {
 
 }
 
-const PhotosScene = ({ classes, redux: { photos } }) => {
+const PhotosScene = ({ classes, redux: { photos, loadPhotos } }) => {
+  useEffect(() => { loadPhotos() }, [])
   const [photo, setPhoto] = useState(null)
 
   return (
@@ -33,7 +34,7 @@ const PhotosScene = ({ classes, redux: { photos } }) => {
       >
         <div style={{ width: photo?.isPortrait ? '600px' : '1300px' }}>
           <img
-            onClick={onClose}
+            onClick={() => setPhoto(null)}
             className={classes.photo}
             alt={photo?.title}
             src={BACKEND_URL + photo?.url}
@@ -61,5 +62,4 @@ const mapDispatchToProps = () => ({
 })
 
 const withRedux = connect(mapStateTopProps, mapDispatchToProps)
-
 export default withStyles(styles)(withRedux(PhotosScene))

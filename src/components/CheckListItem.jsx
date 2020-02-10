@@ -5,13 +5,12 @@ import { withStyles } from '@material-ui/styles'
 import CheckIcon from 'mdi-react/CheckIcon'
 
 const styles = theme => ({
-  root: {},
   icon: {
     color: theme.palette.success.main,
   }
 })
 
-const ServiceListItem = ({ classes, children }) =>
+const CheckListItem = ({ classes, children }) =>
   <ListItem>
     <ListItemIcon>
       <CheckIcon className={classes.icon} />
@@ -19,9 +18,9 @@ const ServiceListItem = ({ classes, children }) =>
     <ListItemText primary={children} />
   </ListItem>
 
-ServiceListItem.propTypes = {
+CheckListItem.propTypes = {
   classes: object.isRequired,
   children: string.isRequired,
 }
 
-export default withStyles(styles)(ServiceListItem)
+export default withStyles(styles)(CheckListItem)

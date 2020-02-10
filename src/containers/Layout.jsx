@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/styles'
 import loadable from '@loadable/component'
-import { Header, Footer } from 'src/components'
+import { Header } from 'src/components'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import IndexScene from './IndexScene'
 import { Typography } from '@material-ui/core'
@@ -40,7 +40,6 @@ const Layout = ({ classes }) => {
           <div className={classes.footer}>
             <Typography color="inherit">Николай Костюк &copy; {(new Date()).getFullYear()}</Typography>
           </div>
-          <Footer />
         </div>
       </Route>
     </Switch>
