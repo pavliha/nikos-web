@@ -8,14 +8,11 @@ import { Provider } from 'react-redux'
 import { store } from 'src/redux'
 import 'src/styles.css'
 
-const App = () => {
-  return (
-    <ThemeProvider theme={createMuiTheme(theme)}>
-      <Provider store={store}>
-        <Layout />
-      </Provider>
-    </ThemeProvider>
-  )
-}
+const App = () =>
+  <ThemeProvider theme={createMuiTheme(theme)}>
+    <Provider store={store}>
+      <Layout />
+    </Provider>
+  </ThemeProvider>
 
 export default init(App)
