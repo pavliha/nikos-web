@@ -13,6 +13,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "aws-sdk": "^2.820.0",
     "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "lodash": "^4.17.20",
@@ -33,7 +34,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "netlify-lambda install"
   },
   "browserslist": {
     "production": [
@@ -48,7 +50,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
     "@testing-library/jest-dom": "^5.11.4",
+    "@types/aws-lambda": "^8.10.68",
     "@types/enzyme": "^3.10.7",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.19",
@@ -66,6 +70,7 @@
     "eslint-plugin-prettier": "^3.3.0",
     "husky": "^4.3.0",
     "mdx-loader": "^3.0.2",
+    "netlify-lambda": "^2.0.2",
     "numeral": "^2.0.6",
     "prettier": "^2.2.1",
     "typescript": "^4.1.3"
